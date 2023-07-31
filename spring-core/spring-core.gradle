@@ -121,6 +121,18 @@ jar {
 	}
 }
 
+tasks.named('compileJava', JavaCompile) {
+	// options.compilerArgs.addAll(['--add-modules', 'spring.objenesis.repack'])
+	//options.compilerArgs = ['--add-exports', 'org.springframework.objenesis.instantiator=ALL-UNNAMED']
+	//options.compilerArgs = ['--add-exports', 'spring.objenesis.repack/org.springframework.objenesis.instantiator=spring.core',
+	//						'--add-exports', 'spring.objenesis.repack/org.springframework.objenesis.strategy=spring.core']
+	options.compilerArgs = [
+			'--patch-module', 'spring.objenesis.repack2=spring-objenesis-repack-3.3.jar',
+					]
+	//options.compilerArgs = ['--add-reads', 'org.springframework.objenesis.instantiator=ALL-UNNAMED']
+	//options.compilerArgs = ['--patch-module', 'org.springframework.objenesis.instantiator=ALL-UNNAMED']
+}
+
 test {
 	// Make sure the classes dir is used on the test classpath (required by ResourceTests).
 	// When test fixtures are involved, the JAR is used by default.
