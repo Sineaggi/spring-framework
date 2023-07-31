@@ -16,7 +16,7 @@
 
 package org.aopalliance.intercept;
 
-import javax.annotation.Nonnull;
+import org.springframework.lang.NonNull;
 
 /**
  * This interface represents an invocation in the program.
@@ -34,7 +34,7 @@ public interface Invocation extends Joinpoint {
 	 * array to change the arguments.
 	 * @return the argument of the invocation
 	 */
-	@Nonnull
+	@NonNull
 	Object[] getArguments();
 
 }

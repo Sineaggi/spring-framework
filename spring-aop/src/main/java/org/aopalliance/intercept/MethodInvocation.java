@@ -16,9 +16,9 @@
 
 package org.aopalliance.intercept;
 
-import java.lang.reflect.Method;
+import org.springframework.lang.NonNull;
 
-import javax.annotation.Nonnull;
+import java.lang.reflect.Method;
 
 /**
  * Description of an invocation to a method, given to an interceptor
@@ -38,7 +38,7 @@ public interface MethodInvocation extends Invocation {
 	 * {@link Joinpoint#getStaticPart()} method (same result).
 	 * @return the method being called
 	 */
-	@Nonnull
+	@NonNull
 	Method getMethod();
 
 }

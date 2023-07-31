@@ -17,3 +17,9 @@ dependencies {
 	testImplementation(testFixtures(project(":spring-core")))
 	testImplementation("jakarta.annotation:jakarta.annotation-api")
 }
+
+tasks.named('compileJava', JavaCompile) {
+	options.compilerArgs = [
+			'--add-exports', 'org.yaml.snakeyaml/org.yaml.snakeyaml.inspector=spring.beans',
+	]
+}

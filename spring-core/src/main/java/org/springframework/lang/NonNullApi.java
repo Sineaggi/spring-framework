@@ -22,8 +22,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import javax.annotation.Nonnull;
-import javax.annotation.meta.TypeQualifierDefault;
+//import javax.annotation.Nonnull;
+//import javax.annotation.meta.TypeQualifierDefault;
 
 /**
  * A common Spring annotation to declare that parameters and return values
@@ -45,7 +45,7 @@ import javax.annotation.meta.TypeQualifierDefault;
 @Target(ElementType.PACKAGE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Nonnull
-@TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
+//@Nonnull
+//@TypeQualifierDefault({ElementType.METHOD, ElementType.PARAMETER})
 public @interface NonNullApi {
 }

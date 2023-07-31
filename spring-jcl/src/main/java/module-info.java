@@ -1,8 +1,8 @@
-module spring.spring.jcl.main {
-    exports org.apache.commons.logging;
-    exports org.apache.commons.logging.impl;
+module spring.jcl {
+	exports org.apache.commons.logging.impl;
+	exports org.apache.commons.logging;
 
-    requires static org.slf4j;
-    requires static org.apache.logging.log4j;
-    requires java.logging; // todo: validate we actually need java.logging
+	requires java.logging; // todo: validate we actually need java.loggin
+	requires static org.apache.logging.log4j;
+	requires static org.slf4j;
 }

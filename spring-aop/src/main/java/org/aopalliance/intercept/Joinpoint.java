@@ -16,10 +16,10 @@
 
 package org.aopalliance.intercept;
 
-import java.lang.reflect.AccessibleObject;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import java.lang.reflect.AccessibleObject;
 
 /**
  * This interface represents a generic runtime joinpoint (in the AOP
@@ -65,7 +65,7 @@ public interface Joinpoint {
 	 * <p>The static part is an accessible object on which a chain of
 	 * interceptors is installed.
 	 */
-	@Nonnull
+	@NonNull
 	AccessibleObject getStaticPart();
 
 }

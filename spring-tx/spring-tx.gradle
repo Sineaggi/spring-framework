@@ -10,6 +10,7 @@ dependencies {
 	optional("io.projectreactor:reactor-core")
 	optional("io.vavr:vavr")
 	optional("jakarta.ejb:jakarta.ejb-api")
+	optional("jakarta.enterprise:jakarta.enterprise.cdi-api")
 	optional("jakarta.interceptor:jakarta.interceptor-api")
 	optional("jakarta.resource:jakarta.resource-api")
 	optional("jakarta.transaction:jakarta.transaction-api")

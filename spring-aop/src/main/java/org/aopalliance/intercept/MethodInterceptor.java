@@ -16,8 +16,8 @@
 
 package org.aopalliance.intercept;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 
 /**
  * Intercepts calls on an interface on its way to the target. These
@@ -56,6 +56,6 @@ public interface MethodInterceptor extends Interceptor {
 	 * throws an exception
 	 */
 	@Nullable
-	Object invoke(@Nonnull MethodInvocation invocation) throws Throwable;
+	Object invoke(@NonNull MethodInvocation invocation) throws Throwable;
 
 }

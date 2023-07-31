@@ -13,6 +13,7 @@ dependencies {
 	optional("com.fasterxml.jackson.core:jackson-databind")
 	optional("io.micrometer:micrometer-core")
 	optional("jakarta.resource:jakarta.resource-api")
+	optional("jakarta.enterprise:jakarta.enterprise.cdi-api")
 	optional("jakarta.transaction:jakarta.transaction-api")
 	testImplementation(testFixtures(project(":spring-beans")))
 	testImplementation(testFixtures(project(":spring-tx")))

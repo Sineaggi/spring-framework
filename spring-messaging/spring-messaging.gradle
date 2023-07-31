@@ -42,3 +42,8 @@ dependencies {
 	testRuntimeOnly("jakarta.json:jakarta.json-api")
 	testRuntimeOnly("org.eclipse:yasson")
 }
+
+tasks.named('compileJava', JavaCompile) {
+	// todo: we have a fucked dependency on netty 4 and 5, which can't happen at the same time in prod.
+	//options.compilerArgs = ['--patch-module', 'io.netty.codec.http2=C:/Users/Clayton/.gradle/caches/modules-2/files-2.1/io.netty/netty5-codec-http2/5.0.0.Alpha5/a5f8de2dbf8a352f6d988ca8bcfa2cab363d8589/netty5-codec-http2-5.0.0.Alpha5.jar;C:/Users/Clayton/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http2/4.1.95.Final/871549029bd3d8102c58dbd813d609ad755303f0/netty-codec-http2-4.1.95.Final.jar']
+}
