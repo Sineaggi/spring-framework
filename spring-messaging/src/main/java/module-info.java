@@ -25,4 +25,9 @@ module spring.messaging {
     requires org.reactivestreams;
     requires com.google.protobuf;
     requires com.google.protobuf.util;
+    requires io.netty5.buffer;
+    requires reactor.netty5.core;
+    requires io.netty5.transport;
+    requires io.netty5.codec;
+    requires io.netty5.common;
 }

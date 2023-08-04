@@ -18,3 +18,9 @@ jar {
 		)
 	}
 }
+
+tasks.named('compileJava', JavaCompile) {
+	options.compilerArgs = [
+			'--add-exports', 'org.junit.platform.commons/org.junit.platform.commons.util=spring.core.test',
+	]
+}

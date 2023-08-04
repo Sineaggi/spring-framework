@@ -14,6 +14,11 @@ module spring.context {
     exports org.springframework.format.support;
     exports org.springframework.scheduling;
     exports org.springframework.validation.beanvalidation;
+    exports org.springframework.context.support;
+    exports org.springframework.ui.context;
+    exports org.springframework.ui.context.support;
+    exports org.springframework.validation.support;
+    exports org.springframework.validation.method;
     requires java.compiler;
 	requires java.desktop;
 	requires java.instrument;

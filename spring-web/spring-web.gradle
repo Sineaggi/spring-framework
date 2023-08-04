@@ -99,3 +99,19 @@ dependencies {
 	testRuntimeOnly("org.glassfish:jakarta.el")
 	testRuntimeOnly("org.hibernate:hibernate-validator")
 }
+
+tasks.named('compileJava', JavaCompile) {
+	def excludes = ['jetty-jakarta-servlet-api-5.0.2.jar']
+	def mainSourceSet = sourceSets.named('main')
+	options.compilerArgumentProviders << new CommandLineArgumentProvider() {
+		@Override
+		Iterable<String> asArguments() {
+			return [
+					'--module-path',
+					mainSourceSet.get().compileClasspath.filter {
+						!excludes.contains(it.name)
+					}.join(File.pathSeparator),
+			]
+		}
+	}
+}

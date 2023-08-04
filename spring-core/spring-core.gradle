@@ -68,8 +68,6 @@ task objenesisSourceJar(type: Jar) {
 dependencies {
 	javapoet("com.squareup:javapoet:${javapoetVersion}@jar")
 	objenesis("org.objenesis:objenesis:${objenesisVersion}@jar")
-	api(files(javapoetRepackJar))
-	api(files(objenesisRepackJar))
 	api(project(":spring-jcl"))
 	compileOnly("io.projectreactor.tools:blockhound")
 	compileOnly("org.graalvm.sdk:graal-sdk")
@@ -121,32 +119,27 @@ jar {
 	}
 }
 
-tasks.named('compileJava', JavaCompile) {
-	// options.compilerArgs.addAll(['--add-modules', 'spring.objenesis.repack'])
-	//options.compilerArgs = ['--add-exports', 'org.springframework.objenesis.instantiator=ALL-UNNAMED']
-	//options.compilerArgs = ['--add-exports', 'spring.objenesis.repack/org.springframework.objenesis.instantiator=spring.core',
-	//						'--add-exports', 'spring.objenesis.repack/org.springframework.objenesis.strategy=spring.core']
-	//println(objenesisRepackJar.archiveFile.get())
-	//File.pathSeparator
-	options.compilerArgs = [
-			//'--patch-module', 'spring.objenesis.repack=spring-objenesis-repack-3.3.jar',
-			//'--add-modules', 'spring.javapoet.repack',
-			'--patch-module', "spring.core=${[objenesisRepackJar.archiveFile.get(), javapoetRepackJar.archiveFile.get()].join(File.pathSeparator)}",
-			'--add-exports', 'org.yaml.snakeyaml/org.yaml.snakeyaml.inspector=spring.beans',
-			//'--patch-module', 'spring.javapoet.repack=spring.core',
-			//'--add-reads', 'spring.javapoet.repack=spring.core',
-			//'--patch-module', 'spring.core=C:\\Users\\Clayton\\Source\\spring-framework\\spring-core\\src\\main\\java',
-			//'--module-path', 'C:\\Users\\Clayton\\Source\\spring-framework\\spring-core\\build\\libs\\spring-javapoet-repack-1.13.0.jar;C:\\Users\\Clayton\\Source\\spring-framework\\spring-core\\build\\libs\\spring-objenesis-repack-3.3.jar;C:\\Users\\Clayton\\Source\\spring-framework\\spring-jcl\\build\\libs\\spring-jcl-6.1.0-SNAPSHOT.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\io.projectreactor.tools\\blockhound\\1.0.8.RELEASE\\e0dd72a1e2bc8e6a4e9f5ea3732a583695d9f0b6\\blockhound-1.0.8.RELEASE.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.graalvm.sdk\\graal-sdk\\22.3.1\\c2c1e3495b04729abbe717173558cfe3cc8bf6f8\\graal-sdk-22.3.1.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\net.sf.jopt-simple\\jopt-simple\\6.0-alpha-3\\2ab1a73e1e22d2b73469362a0908a98644b681d\\jopt-simple-6.0-alpha-3.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.aspectj\\aspectjweaver\\1.9.19\\afbffb1210239fbba5cad73093c5b216d515838f\\aspectjweaver-1.9.19.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin\\kotlin-reflect\\1.9.0\\2891f552979d4bf4d4ec516acb9df769fb62dbe9\\kotlin-reflect-1.9.0.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlinx\\kotlinx-coroutines-reactive\\1.7.2\\a7e7e80b20cf1b4e13051ec36ae179bbd0bbc565\\kotlinx-coroutines-reactive-1.7.2.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlinx\\kotlinx-coroutines-core-jvm\\1.7.2\\27cb5db69aeef59d8cc2a2cc2be4200f26091e72\\kotlinx-coroutines-core-jvm-1.7.2.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlinx\\kotlinx-coroutines-reactor\\1.7.2\\58f94932d588533791784239f5d6a2757fb57a33\\kotlinx-coroutines-reactor-1.7.2.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin\\kotlin-stdlib-jdk8\\1.9.0\\e000bd084353d84c9e888f6fb341dc1f5b79d948\\kotlin-stdlib-jdk8-1.9.0.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin\\kotlin-stdlib-jdk7\\1.9.0\\f320478990d05e0cfaadd74f9619fd6027adbf37\\kotlin-stdlib-jdk7-1.9.0.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains.kotlin\\kotlin-stdlib\\1.9.0\\8ee15ef0c67dc83d874f412d84378d7f0eb50b63\\kotlin-stdlib-1.9.0.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\io.projectreactor\\reactor-core\\3.6.0-M1\\8979013c254bda70cba5be60656cea451becc415\\reactor-core-3.6.0-M1.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\io.reactivex.rxjava3\\rxjava\\3.1.6\\fd824db2008535f59f2ac0c7bfe8d49fb7193e0\\rxjava-3.1.6.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\io.smallrye.reactive\\mutiny\\1.9.0\\1898430937b8babab0c98d685b26c7672422546b\\mutiny-1.9.0.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\io.netty\\netty-buffer\\4.1.95.Final\\e4c48277bd1976b6cd6dc193fe6fccc0bee87b7d\\netty-buffer-4.1.95.Final.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\io.netty\\netty5-buffer\\5.0.0.Alpha5\\b155d511ca60399a710bea408d4c89da4a179608\\netty5-buffer-5.0.0.Alpha5.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.jetbrains\\annotations\\23.0.0\\8cc20c07506ec18e0834947b84a864bfc094484e\\annotations-23.0.0.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\io.netty\\netty-common\\4.1.95.Final\\58c510d99df2b1abbcba4849d98b05affae0a96b\\netty-common-4.1.95.Final.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\io.netty\\netty5-common\\5.0.0.Alpha5\\e262e3f1bca572e7d061cd959b2d357bba1bd711\\netty5-common-5.0.0.Alpha5.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\org.reactivestreams\\reactive-streams\\1.0.4\\3864a1320d97d7b045f729a326e1e077661f31b7\\reactive-streams-1.0.4.jar;C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\io.smallrye.common\\smallrye-common-annotation\\1.13.0\\80c0b5cf5a2a255b14d8a16a5424b57ab72bcacb\\smallrye-common-annotation-1.13.0.jar',
-			//'--patch-module', 'java.xml.ws.annotation=C:\\Users\\Clayton\\.gradle\\caches\\modules-2\\files-2.1\\com.google.code.findbugs\\jsr305\\3.0.2\\25ea2e8b0c338a877313bd4672d3fe056ea78f0d\\jsr305-3.0.2.jar'
-					]
-	//options.compilerArgs = ['--add-reads', 'org.springframework.objenesis.instantiator=ALL-UNNAMED']
-	//options.compilerArgs = ['--patch-module', 'org.springframework.objenesis.instantiator=ALL-UNNAMED']
+tasks.withType(JavaCompile).configureEach {
+// tasks.named('compileJava', JavaCompile) {
+	options.compilerArgumentProviders << new CommandLineArgumentProvider() {
+		@Override
+		Iterable<String> asArguments() {
+			return [
+					'--patch-module',
+					"spring.core=${[objenesisRepackJar.archiveFile.get(), javapoetRepackJar.archiveFile.get()].join(File.pathSeparator)}",
+			]
+		}
+	}
 }
 
 test {
 	// Make sure the classes dir is used on the test classpath (required by ResourceTests).
 	// When test fixtures are involved, the JAR is used by default.
 	classpath = sourceSets.main.output.classesDirs + files(sourceSets.main.output.resourcesDir) + classpath - files(jar.archiveFile)
+
+	// todo: poet and other jar
+	//  api(files(javapoetRepackJar))
+	//  api(files(objenesisRepackJar))
 
 	// Ensure that BlockHound tests run on JDK 13+. For details, see:
 	// https://github.com/reactor/BlockHound/issues/33

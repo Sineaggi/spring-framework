@@ -1,4 +1,11 @@
 module spring.web {
+    exports org.springframework.http;
+    exports org.springframework.web.context;
+    exports org.springframework.web.context.request;
+    exports org.springframework.web.context.request.async;
+    exports org.springframework.web.context.support;
+    exports org.springframework.web.cors;
+    exports org.springframework.web.util;
     requires spring.core;
     requires org.apache.httpcomponents.client5.httpclient5;
     requires org.apache.httpcomponents.core5.httpcore5;
@@ -27,6 +34,27 @@ module spring.web {
     requires jakarta.json.bind;
     requires jakarta.servlet;
     requires jakarta.faces.api;
+    requires jakarta.servlet.jsp;
+    requires kotlinx.coroutines.reactor;
+    requires spring.aop;
+    requires jakarta.validation;
+    requires kotlin.reflect;
+    requires spring.oxm;
+    requires com.google.gson;
+    requires protobuf.java.format;
+    requires com.google.protobuf.util;
+    requires com.google.protobuf;
+    //requires org.apache.tomcat.embed.core;
+    requires org.eclipse.jetty.server;
+    requires undertow.core;
+    requires xnio.api;
+    requires io.netty5.codec.http;
+    requires io.netty5.handler;
+    requires io.netty5.transport;
+    requires reactor.netty5.core;
+    requires reactor.netty5.http;
+    requires io.netty5.buffer;
+    // requires jakarta.faces.api;
     // requires org.apache.tomcat.embed.core; // can't cuz this also has jakarta.servlet the fucking bastards
     // todo: requires protobuf.java;
 }

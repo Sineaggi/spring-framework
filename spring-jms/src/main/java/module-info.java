@@ -10,4 +10,5 @@ module spring.jms {
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.databind;
     requires spring.messaging;
+    requires spring.oxm;
 }

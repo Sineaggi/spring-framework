@@ -6,5 +6,5 @@ module spring.oxm {
     requires jakarta.xml.bind;
     requires java.desktop;
     requires spring.jcl;
-    //requires xstream;
+    requires xstream;
 }
