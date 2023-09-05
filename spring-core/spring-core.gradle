@@ -32,6 +32,13 @@ task javapoetRepackJar(type: ShadowJar) {
 	relocate('com.squareup.javapoet', 'org.springframework.javapoet')
 }
 
+def javapoetRepackClasses = tasks.register('javapoetRepackClasses', Copy) {
+	from(zipTree(javapoetRepackJar.archiveFile)) {
+		include "org/springframework/javapoet/**"
+	}
+	into(layout.buildDirectory.dir('classes/javapoet-repack/main'))
+}
+
 task javapoetSource(type: ShadowSource) {
 	configurations = [project.configurations.javapoet]
 	relocate('com.squareup.javapoet', 'org.springframework.javapoet')
@@ -50,6 +57,20 @@ task objenesisRepackJar(type: ShadowJar) {
 	archiveVersion = objenesisVersion
 	configurations = [project.configurations.objenesis]
 	relocate('org.objenesis', 'org.springframework.objenesis')
+}
+
+def objenesisRepackClasses = tasks.register('objenesisRepackClasses', Copy) {
+	from(zipTree(objenesisRepackJar.archiveFile)) {
+		include "org/springframework/objenesis/**"
+	}
+	into(layout.buildDirectory.dir('classes/objenesis-repack/main'))
+}
+
+sourceSets {
+	main {
+		output.classesDirs.from(objenesisRepackClasses)
+		output.classesDirs.from(javapoetRepackClasses)
+	}
 }
 
 task objenesisSource(type: ShadowSource) {
@@ -107,20 +128,9 @@ dependencies {
 
 jar {
 	manifest.attributes["Dependencies"] = "jdk.unsupported,org.jboss.vfs" // for WildFly (Objenesis and VfsUtils)
-
-	dependsOn javapoetRepackJar
-	from(zipTree(javapoetRepackJar.archiveFile)) {
-		include "org/springframework/javapoet/**"
-	}
-
-	dependsOn objenesisRepackJar
-	from(zipTree(objenesisRepackJar.archiveFile)) {
-		include "org/springframework/objenesis/**"
-	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-// tasks.named('compileJava', JavaCompile) {
 	options.compilerArgumentProviders << new CommandLineArgumentProvider() {
 		@Override
 		Iterable<String> asArguments() {
@@ -136,10 +146,6 @@ test {
 	// Make sure the classes dir is used on the test classpath (required by ResourceTests).
 	// When test fixtures are involved, the JAR is used by default.
 	classpath = sourceSets.main.output.classesDirs + files(sourceSets.main.output.resourcesDir) + classpath - files(jar.archiveFile)
-
-	// todo: poet and other jar
-	//  api(files(javapoetRepackJar))
-	//  api(files(objenesisRepackJar))
 
 	// Ensure that BlockHound tests run on JDK 13+. For details, see:
 	// https://github.com/reactor/BlockHound/issues/33

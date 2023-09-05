@@ -5,8 +5,13 @@ module spring.aop {
 	requires spring.beans;
 	requires spring.core;
 	requires spring.jcl;
+	requires static kotlinx.coroutines.core;
+    requires static kotlinx.coroutines.reactive;
+    requires static kotlinx.coroutines.reactor;
+    requires static org.reactivestreams;
+    requires static reactor.core;
 
-	exports org.aopalliance.aop;
+    exports org.aopalliance.aop;
 	exports org.aopalliance.intercept;
 	exports org.springframework.aop.config;
 	exports org.springframework.aop.framework.autoproxy;

@@ -23,3 +23,9 @@ tasks.named('compileJava', JavaCompile) {
 			'--add-exports', 'org.yaml.snakeyaml/org.yaml.snakeyaml.inspector=spring.beans',
 	]
 }
+
+tasks.compileTestFixturesJava {
+	options.compilerArgs = [
+			'--add-exports', 'org.yaml.snakeyaml/org.yaml.snakeyaml.inspector=spring.beans',
+	]
+}

@@ -5,4 +5,5 @@ module spring.expression {
     exports org.springframework.expression.spel;
     requires spring.core;
     requires spring.jcl;
+    requires static kotlin.reflect;
 }
