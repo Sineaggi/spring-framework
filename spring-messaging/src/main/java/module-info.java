@@ -6,6 +6,14 @@ module spring.messaging {
     exports org.springframework.messaging.core;
     exports org.springframework.messaging.support;
     exports org.springframework.messaging.converter;
+    exports org.springframework.messaging.simp;
+    exports org.springframework.messaging.simp.broker;
+    exports org.springframework.messaging.simp.stomp;
+    exports org.springframework.messaging.simp.config;
+    exports org.springframework.messaging.simp.annotation.support;
+    exports org.springframework.messaging.simp.user;
+    exports org.springframework.messaging.tcp;
+    exports org.springframework.messaging.handler;
     requires spring.core;
     requires spring.jcl;
     requires com.google.gson;

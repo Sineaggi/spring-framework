@@ -1,4 +1,5 @@
 module spring.core.test {
+    exports org.springframework.aot.test.agent;
     requires org.assertj.core;
     requires spring.core;
     requires com.thoughtworks.qdox;

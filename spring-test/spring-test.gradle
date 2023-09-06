@@ -33,7 +33,7 @@ dependencies {
 		exclude group: "commons-logging", module: "commons-logging"
 	}
 	optional("org.apache.groovy:groovy")
-	optional("org.apache.tomcat.embed:tomcat-embed-core")
+	optional("org.apache.tomcat:tomcat-catalina")
 	optional("org.aspectj:aspectjweaver")
 	optional("org.hamcrest:hamcrest")
 	optional("org.jetbrains.kotlin:kotlin-reflect")
@@ -89,6 +89,18 @@ dependencies {
 	testRuntimeOnly("org.yaml:snakeyaml")
 }
 
+dependencies {
+	modules {
+		module("com.sun.activation:jakarta.activation") {
+			replacedBy("jakarta.activation:jakarta.activation-api", "these insane fuckers keep trolling me")
+		}
+	}
+}
+
+
+
+// com.sun.activation:jakarta.activation:2.0.1
+
 // Prevent xml-apis from being used so that the corresponding XML APIs from
 // the JDK's `java.xml` module are used instead. This allows spring-test to
 // build in Eclipse IDE which fails to compile if there is a split package
@@ -113,3 +125,21 @@ test {
 	// Java Util Logging for the JUnit Platform.
 	// systemProperty("java.util.logging.manager", "org.apache.logging.log4j.jul.LogManager")
 }
+
+// because jsonassert is a dumbfuck split package
+tasks.named('compileJava', JavaCompile) {
+	def excludes = []
+	def mainSourceSet = sourceSets.named('main')
+	options.compilerArgumentProviders << new CommandLineArgumentProvider() {
+		@Override
+		Iterable<String> asArguments() {
+			return [
+					'--module-path',
+					mainSourceSet.get().compileClasspath.filter {
+						!excludes.contains(it.name)
+					}.join(File.pathSeparator),
+			]
+		}
+	}
+}
+

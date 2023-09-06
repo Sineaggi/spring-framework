@@ -74,3 +74,19 @@ dependencies {
 	testRuntimeOnly("org.python:jython-standalone")
 	testRuntimeOnly("org.webjars:underscorejs")
 }
+
+tasks.named('compileJava', JavaCompile) {
+	def excludes = ['asm-debug-all-5.0.2.jar']
+	def mainSourceSet = sourceSets.named('main')
+	options.compilerArgumentProviders << new CommandLineArgumentProvider() {
+		@Override
+		Iterable<String> asArguments() {
+			return [
+					'--module-path',
+					mainSourceSet.get().compileClasspath.filter {
+						!excludes.contains(it.name)
+					}.join(File.pathSeparator),
+			]
+		}
+	}
+}

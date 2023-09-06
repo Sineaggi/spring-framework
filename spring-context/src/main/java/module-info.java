@@ -19,8 +19,9 @@ module spring.context {
 	requires spring.core;
 	requires spring.expression;
 	requires spring.jcl;
+    requires spring.instrument;
 
-	exports org.springframework.context.annotation;
+    exports org.springframework.context.annotation;
 	exports org.springframework.context.event;
 	exports org.springframework.context.i18n;
 	exports org.springframework.context.support;
@@ -40,4 +41,17 @@ module spring.context {
 	exports org.springframework.validation.method;
 	exports org.springframework.validation.support;
 	exports org.springframework.validation;
+    exports org.springframework.instrument.classloading;
+    exports org.springframework.context.index;
+    exports org.springframework.format;
+    exports org.springframework.cache;
+    exports org.springframework.cache.concurrent;
+    exports org.springframework.context.expression;
+    exports org.springframework.scripting.support;
+    exports org.springframework.context.aot;
+    exports org.springframework.scheduling.config;
+    exports org.springframework.cache.annotation;
+    exports org.springframework.cache.config;
+    exports org.springframework.cache.interceptor;
+    exports org.springframework.cache.support;
 }

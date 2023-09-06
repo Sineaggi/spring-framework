@@ -43,7 +43,7 @@ dependencies {
 	optional("org.apache.groovy:groovy")
 	optional("org.apache.httpcomponents.client5:httpclient5")
 	optional("org.apache.httpcomponents.core5:httpcore5-reactive")
-	optional("org.apache.tomcat.embed:tomcat-embed-core")
+	optional("org.apache.tomcat:tomcat-catalina")
 	optional("org.eclipse.jetty:jetty-reactive-httpclient")
 	optional("org.eclipse.jetty:jetty-server") {
 		exclude group: "jakarta.servlet", module: "jakarta.servlet-api"
@@ -55,6 +55,7 @@ dependencies {
 		exclude group: "org.eclipse.jetty", module: "jetty-server"
 		exclude group: "org.eclipse.jetty", module: "jetty-servlet"
 	}
+	compileOnly("org.eclipse.jetty:jetty-security")
 	optional("org.jetbrains.kotlin:kotlin-reflect")
 	optional("org.jetbrains.kotlin:kotlin-stdlib")
 	optional("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
@@ -84,7 +85,7 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("io.projectreactor.tools:blockhound")
 	testImplementation("org.apache.tomcat:tomcat-util")
-	testImplementation("org.apache.tomcat.embed:tomcat-embed-core")
+	testImplementation("org.apache.tomcat:tomcat-catalina")
 	testImplementation("org.eclipse.jetty:jetty-server")
 	testImplementation("org.eclipse.jetty.ee10:jetty-ee10-servlet")
 	testImplementation("org.jetbrains.kotlin:kotlin-reflect")

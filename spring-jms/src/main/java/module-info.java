@@ -1,4 +1,7 @@
 module spring.jms {
+    exports org.springframework.jms.annotation;
+    exports org.springframework.jms.config;
+    exports org.springframework.jms.core;
     requires spring.context;
     requires spring.beans;
     requires spring.jcl;
@@ -11,4 +14,6 @@ module spring.jms {
     requires com.fasterxml.jackson.databind;
     requires spring.messaging;
     requires spring.oxm;
+    requires micrometer.core;
+    requires micrometer.observation;
 }

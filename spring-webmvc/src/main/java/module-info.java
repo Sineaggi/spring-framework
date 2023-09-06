@@ -1,7 +1,38 @@
 module spring.webmvc {
+    exports org.springframework.web.servlet.handler;
+    exports org.springframework.web.servlet;
+    exports org.springframework.web.servlet.support;
+    exports org.springframework.web.servlet.mvc.method.annotation;
+    exports org.springframework.web.servlet.config.annotation;
+    exports org.springframework.web.servlet.i18n;
+    exports org.springframework.web.servlet.resource;
+    exports org.springframework.web.servlet.view;
+    exports org.springframework.web.servlet.theme;
     requires jakarta.servlet;
     requires spring.beans;
     requires spring.context;
     requires spring.core;
     requires spring.web;
+    requires spring.jcl;
+    requires spring.aop;
+	requires java.xml;
+    requires static com.fasterxml.jackson.annotation;
+    requires static com.fasterxml.jackson.databind;
+    requires static context.propagation;
+    requires static org.reactivestreams;
+    requires static reactor.core;
+    requires java.desktop;
+	requires jakarta.servlet.jsp;
+    requires jakarta.servlet.jsp.jstl;
+    requires com.fasterxml.jackson.dataformat.cbor;
+    requires com.fasterxml.jackson.dataformat.smile;
+    requires spring.expression;
+    requires org.apache.poi.poi;
+    requires org.apache.poi.ooxml;
+    requires com.github.librepdf.openpdf;
+    requires java.scripting;
+    requires jakarta.xml.bind;
+    requires spring.oxm;
+    requires com.fasterxml.jackson.dataformat.xml;
+    requires static webjars.locator.core;
 }

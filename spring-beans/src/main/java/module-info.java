@@ -10,6 +10,7 @@ module spring.beans {
     exports org.springframework.beans.support;
     exports org.springframework.beans.factory.groovy;
     exports org.springframework.beans.propertyeditors;
+    exports org.springframework.beans.factory.wiring;
     requires spring.jcl;
 	requires spring.core;
 	requires kotlin.stdlib;

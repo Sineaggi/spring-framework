@@ -10,4 +10,9 @@ module spring.orm {
     requires spring.context;
     requires spring.aop;
     requires jakarta.servlet;
+    requires jakarta.validation;
+    requires spring.web;
+    requires java.desktop;
+    requires java.compiler;
+    requires static org.graalvm.sdk;
 }

@@ -6,6 +6,9 @@ module spring.tx {
     exports org.springframework.transaction;
     exports org.springframework.transaction.reactive;
     exports org.springframework.jca.endpoint;
+    exports org.springframework.transaction.annotation;
+    exports org.springframework.transaction.interceptor;
+    exports org.springframework.transaction.config;
     requires spring.aop;
     requires spring.beans;
     requires spring.core;

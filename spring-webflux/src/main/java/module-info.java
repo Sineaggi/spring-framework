@@ -1,2 +1,35 @@
 module spring.webflux {
+    exports org.springframework.web.reactive.config;
+    exports org.springframework.web.reactive.function.client;
+    exports org.springframework.web.reactive.function;
+    exports org.springframework.web.reactive.accept;
+    exports org.springframework.web.reactive.function.server;
+    exports org.springframework.web.reactive.result.method.annotation;
+    requires spring.core;
+	requires spring.web;
+	requires static kotlin.stdlib;
+	requires static kotlinx.coroutines.core;
+	requires static reactor.core;
+    requires jakarta.servlet;
+    requires jakarta.websocket.client;
+    requires jakarta.websocket;
+    requires java.desktop;
+    requires java.scripting;
+    requires spring.aop;
+    requires spring.beans;
+    requires spring.context;
+    requires spring.jcl;
+    requires static kotlin.reflect;
+    requires static org.apache.tomcat.websocket;
+    requires static org.eclipse.jetty.ee10.websocket.jetty.server;
+    requires static org.eclipse.jetty.websocket.core.common;
+    requires jakarta.validation;
+    requires io.netty5.buffer;
+    requires io.netty5.codec.http;
+    requires io.netty5.transport;
+    requires org.reactivestreams;
+    requires reactor.netty5.core;
+    requires reactor.netty5.http;
+    requires spring.context.support;
+    requires freemarker;
 }
