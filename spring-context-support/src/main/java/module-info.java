@@ -10,8 +10,8 @@ module spring.context.support {
     requires spring.aop;
 	requires spring.jdbc;
     requires java.sql;
-    requires quartz;
-    requires cache.api;
+    // requires quartz;
+	// requires cache.api;
     requires jakarta.activation;
     requires java.desktop;
     requires jakarta.mail;
