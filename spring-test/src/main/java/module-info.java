@@ -27,4 +27,13 @@ module spring.test {
     requires spring.tx;
     requires spring.webflux;
     requires spring.webmvc;
+    requires junit;
+    requires htmlunit;
+    requires reactor.core;
+    requires org.xmlunit;
+    requires selenium.api;
+    requires htmlunit.driver;
+    requires micrometer.observation;
+    requires org.apache.httpcomponents.httpclient;
+    requires json.path;
 }

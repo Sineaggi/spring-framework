@@ -32,4 +32,14 @@ module spring.webflux {
     requires reactor.netty5.http;
     requires spring.context.support;
     requires freemarker;
+    requires micrometer.observation;
+    requires io.netty.codec.http;
+    requires io.netty.buffer;
+    requires reactor.netty.http;
+    requires reactor.netty.core;
+    requires io.netty.transport;
+    requires xnio.api;
+    requires undertow.core;
+    requires webjars.locator.core;
+    requires micrometer.commons;
 }

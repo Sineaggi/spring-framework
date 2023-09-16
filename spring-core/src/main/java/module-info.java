@@ -17,8 +17,12 @@ module spring.core {
 	requires reactor.blockhound;
 	requires reactor.core;
 	requires spring.jcl;
+    requires io.netty.buffer;
+    requires io.netty.common;
+    requires org.aspectj.weaver;
+    requires io.netty5.common;
 
-	exports org.springframework.aot.generate;
+    exports org.springframework.aot.generate;
 	exports org.springframework.aot.hint.annotation;
 	exports org.springframework.aot.hint.predicate;
 	exports org.springframework.aot.hint.support;

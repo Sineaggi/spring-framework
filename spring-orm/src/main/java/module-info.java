@@ -15,4 +15,6 @@ module spring.orm {
     requires java.desktop;
     requires java.compiler;
     requires static org.graalvm.sdk;
+    requires org.eclipse.persistence.core;
+    requires org.eclipse.persistence.jpa;
 }

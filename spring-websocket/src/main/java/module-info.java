@@ -20,4 +20,6 @@ module spring.websocket {
     requires org.eclipse.jetty.websocket.common;
     requires com.fasterxml.jackson.databind;
     requires undertow.websockets.jsr;
+    requires xnio.api;
+    requires undertow.core;
 }

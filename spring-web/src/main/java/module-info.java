@@ -96,5 +96,14 @@ module spring.web {
     requires org.eclipse.jetty.ee10.servlet;
     requires org.apache.tomcat.catalina;
     requires com.rometools.rome;
+    requires micrometer.commons;
+    requires micrometer.observation;
+    requires okhttp3;
+    requires io.netty.handler;
+    requires io.netty.transport;
+    requires reactor.blockhound;
+    requires org.apache.groovy;
+    requires org.apache.httpcomponents.core5.httpcore5.reactive;
+    requires okio;
     // todo: requires protobuf.java;
 }

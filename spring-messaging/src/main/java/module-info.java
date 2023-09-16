@@ -38,4 +38,10 @@ module spring.messaging {
     requires io.netty5.transport;
     requires io.netty5.codec;
     requires io.netty5.common;
+    requires rsocket.core;
+    requires io.netty.buffer;
+    requires reactor.netty.core;
+    requires io.netty.transport;
+    requires io.netty.codec;
+    requires rsocket.transport.netty;
 }

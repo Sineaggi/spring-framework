@@ -20,6 +20,10 @@ module spring.context {
 	requires spring.expression;
 	requires spring.jcl;
     requires spring.instrument;
+    requires micrometer.commons;
+    requires micrometer.observation;
+    requires org.apache.groovy;
+    requires org.aspectj.weaver;
 
     exports org.springframework.context.annotation;
 	exports org.springframework.context.event;

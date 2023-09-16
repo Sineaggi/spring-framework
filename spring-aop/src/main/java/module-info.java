@@ -10,6 +10,7 @@ module spring.aop {
     requires static kotlinx.coroutines.reactor;
     requires static org.reactivestreams;
     requires static reactor.core;
+    requires org.apache.commons.pool2;
 
     exports org.aopalliance.aop;
 	exports org.aopalliance.intercept;

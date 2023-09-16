@@ -21,4 +21,6 @@ module spring.beans {
 	requires jakarta.inject;
 	requires org.yaml.snakeyaml;
 	requires org.apache.groovy;
+    requires org.reactivestreams;
+    requires org.apache.groovy.xml;
 }

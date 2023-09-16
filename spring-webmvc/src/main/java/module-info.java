@@ -35,4 +35,8 @@ module spring.webmvc {
     requires spring.oxm;
     requires com.fasterxml.jackson.dataformat.xml;
     requires static webjars.locator.core;
+    requires freemarker;
+    requires spring.context.support;
+    requires org.apache.groovy.templates;
+    requires com.rometools.rome;
 }
